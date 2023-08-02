@@ -7,20 +7,15 @@
 #define SMTP_HOST "smtp.gmail.com"
 #define SMTP_PORT 465
 
-#define AUTHOR_EMAIL "espforvyas@gmail.com"
+#define AUTHOR_EMAIL "sample@gmail.com"
 #define AUTHOR_PASSWORD "hsipopwydfyjdebc"
 #define RECIPIENT_EMAIL "vyasmadhvan@gmail.com"
-// Replace with your network credentials (STATION)
-// const char* ssid = "HOMEAIR";
-// const char* password = "M312#V645mu#%16";
-// const char* ssid = "Keshav's Realme";
-// const char* password = "ntak2096";
-const char* ssid = "jioatrg";
-const char* password = "password#123#";
+
+const char* ssid = "******";
+const char* password = "******";
 
 
-// Structure example to receive data
-// Must match the sender structure
+
 typedef struct struct_message {
   int id;
   float temp;
