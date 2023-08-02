@@ -8,30 +8,19 @@
 
 //Provide the token generation process info.
 #include "addons/TokenHelper.h"
-//Provide the RTDB payload printing info and other helper functions.
+
 #include "addons/RTDBHelper.h"
 
-// Set your Board ID (ESP32 Sender #1 = BOARD_ID 1, ESP32 Sender #2 = BOARD_ID 2, etc)
 #define BOARD_ID 2
-
-// Digital pin connected to the DHT sensor
 #define DHTPIN 4  
-
-// Uncomment the type of sensor in use:
 #define DHTTYPE    DHT11     // DHT 11
-// #define DHTTYPE    DHT22     // DHT 22 (AM2302)
-//#define DHTTYPE    DHT21     // DHT 21 (AM2301)
 
-// #define WIFI_SSID_1 "HOMEAIR"
-// #define WIFI_PASSWORD "M312#V645mu#%16"
-//#define WIFI_SSID_1 "Keshav's Realme"
-//#define WIFI_PASSWORD "ntak2096"
-#define WIFI_SSID_1 "jioatrg"
-#define WIFI_PASSWORD "password#123#"
-#define API_KEY "AIzaSyDJHa6TT85HXyi5Ywr0FRy6DQ5ix01PjIo"
+#define WIFI_SSID_1 "*******"
+#define WIFI_PASSWORD "********"
+#define API_KEY "*************"
 
-// Insert RTDB URLefine the RTDB URL */
-#define DATABASE_URL "https://live-temperature-reading-default-rtdb.asia-southeast1.firebasedatabase.app/"
+
+#define DATABASE_URL "https://sampleurl.firebasedatabase.app/"
 FirebaseData fbdo;
 
 FirebaseAuth auth;
