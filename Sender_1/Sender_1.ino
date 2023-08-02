@@ -11,27 +11,21 @@
 //Provide the RTDB payload printing info and other helper functions.
 #include "addons/RTDBHelper.h"
 
-// Set your Board ID (ESP32 Sender #1 = BOARD_ID 1, ESP32 Sender #2 = BOARD_ID 2, etc)
 #define BOARD_ID 1
 
-// Digital pin connected to the DHT sensor
+
 #define DHTPIN 4  
 
-// Uncomment the type of sensor in use:
-#define DHTTYPE    DHT11     // DHT 11
-// #define DHTTYPE    DHT22     // DHT 22 (AM2302)
-//#define DHTTYPE    DHT21     // DHT 21 (AM2301)
 
-//#define WIFI_SSID_1 "HOMEAIR"
-//#define WIFI_PASSWORD "M312#V645mu#%16"
-//#define WIFI_SSID_1 "Keshav's Realme"
-//#define WIFI_PASSWORD "ntak2096"
-#define WIFI_SSID_1 "jioatrg"
-#define WIFI_PASSWORD "password#123#"
-#define API_KEY "AIzaSyDJHa6TT85HXyi5Ywr0FRy6DQ5ix01PjIo"
+#define DHTTYPE    DHT11     // DHT 11
+
+
+#define WIFI_SSID_1 "ssid"
+#define WIFI_PASSWORD "******"
+#define API_KEY "***************"
 
 // Insert RTDB URLefine the RTDB URL */
-#define DATABASE_URL "https://live-temperature-reading-default-rtdb.asia-southeast1.firebasedatabase.app/"
+#define DATABASE_URL "https://sampleurl.firebasedatabase.app/"
 FirebaseData fbdo;
 
 FirebaseAuth auth;
@@ -58,7 +52,7 @@ typedef struct struct_message {
     int readingId;
 } struct_message;
 
-//Create a struct_message called myData
+
 struct_message myData;
 
 unsigned long previousMillis = 0;   // Stores last time temperature was published
@@ -66,7 +60,7 @@ const long interval = 10000;        // Interval at which to publish sensor readi
 
 unsigned int readingId = 0;
 
-// Insert your SSID
+
 constexpr char WIFI_SSID[] = "HOMEAIR";
 
 int32_t getWiFiChannel(const char *ssid) {
@@ -81,12 +75,9 @@ int32_t getWiFiChannel(const char *ssid) {
 }
 
 float readDHTTemperature() {
-  // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
-  // Read temperature as Celsius (the default)
+ 
   float t = dht.readTemperature();
-  // Read temperature as Fahrenheit (isFahrenheit = true)
-  //float t = dht.readTemperature(true);
-  // Check if any reads failed and exit early (to try again).
+
   if (isnan(t)) {    
     Serial.println("Failed to read from DHT sensor!");
     return 0;
@@ -110,7 +101,7 @@ float readDHTHumidity() {
   }
 }
 
-// callback when data is sent
+
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
   Serial.print("\r\nLast Packet Send Status:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
@@ -167,7 +158,7 @@ void setup() {
 
   config.api_key = API_KEY;
 
-  /* Assign the RTDB URL (required) */
+ 
   config.database_url = DATABASE_URL;
 
   /* Sign up */
@@ -179,7 +170,7 @@ void setup() {
     Serial.printf("%s\n", config.signer.signupError.message.c_str());
   }
 
-  /* Assign the callback function for the long running token generation task */
+  
   config.token_status_callback = tokenStatusCallback; //see addons/TokenHelper.h
   
   Firebase.begin(&config, &auth);
